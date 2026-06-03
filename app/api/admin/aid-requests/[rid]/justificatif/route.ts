@@ -6,5 +6,9 @@ export async function GET(req: NextRequest, { params }: { params: { rid: string 
   if (error) return error
   const doc = await prisma.aidRequest.findUnique({ where: { id: params.rid } })
   if (!doc?.justificationData) return NextResponse.json({ detail: "Not found" }, { status: 404 })
-  return new NextResponse(doc.justificationData, { headers: { "Content-Type": doc.justificationMime, "Content-Disposition": `attachment; filename="${doc.justificationFilename}"` } })
-}
+  return new NextResponse(new Uint8Array(doc.justificationData), {
+  headers: {
+    "Content-Type": doc.justificationMime,
+    "Content-Disposition": `attachment; filename="${doc.justificationFilename}"`
+  }
+})
