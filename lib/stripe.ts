@@ -1,6 +1,6 @@
 import Stripe from "stripe"
 
-export const stripe = new Stripe(process.env.STRIPE_API_KEY || "", { apiVersion: "2024-04-10" })
+export const stripe = new Stripe(process.env.STRIPE_API_KEY || "", { apiVersion: "2023-10-16" })
 
 export async function createCheckoutSession(params: {
   amount: number; currency: string; successUrl: string; cancelUrl: string; metadata: Record<string, string>
