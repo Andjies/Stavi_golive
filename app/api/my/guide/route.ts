@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
   const settings = await prisma.settings.findUnique({ where: { id: "global" } })
   if (!settings?.guideData) return NextResponse.json({ detail: "Guide non disponible" }, { status: 404 })
 
-  return new NextResponse(settings.guideData, {
+  return new NextResponse(settings.guideData as unknown as ArrayBuffer, {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename="${settings.guideName || "guide-stavi.pdf"}"`,

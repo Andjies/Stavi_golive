@@ -2,12 +2,13 @@ import { NextRequest, NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
 import { requireAdmin } from "@/lib/auth"
 
-export async function GET(req: NextRequest, { params }: { params: { rid: string } }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ rid: string }> }) {
   const { error } = await requireAdmin(req)
   if (error) return error
-  const doc = await prisma.aidRequest.findUnique({ where: { id: params.rid } })
+  const { rid } = await params
+  const doc = await prisma.aidRequest.findUnique({ where: { id: rid } })
   if (!doc?.justificationData) return NextResponse.json({ detail: "Not found" }, { status: 404 })
-  return new NextResponse(new Uint8Array(doc.justificationData), {
+  return new NextResponse(doc.justificationData as unknown as ArrayBuffer, {
     headers: {
       "Content-Type": doc.justificationMime,
       "Content-Disposition": `attachment; filename="${doc.justificationFilename}"`
