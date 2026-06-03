@@ -1,14 +1,13 @@
 "use client"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, Suspense } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { useLang, useAuth } from "@/app/layout"
 import { CheckCircle2, XCircle, Loader2 } from "lucide-react"
 
-export default function CheckoutSuccess() {
+function CheckoutSuccessInner() {
   const { t } = useLang()
   const { token } = useAuth()
-  const [params] = useSearchParams() as any
   const searchParams = useSearchParams()
   const sessionId = searchParams.get("session_id")
   const [status, setStatus] = useState("checking")
@@ -41,5 +40,13 @@ export default function CheckoutSuccess() {
         {["expired","timeout","error"].includes(status) && <><XCircle size={48} className="mx-auto text-stavi-muted mb-4" /><p className="text-stavi-inkSoft mb-6">Veuillez vérifier votre email ou réessayer.</p><Link href="/shop" className="btn-outline">{t("checkout.backShop")}</Link></>}
       </div>
     </div>
+  )
+}
+
+export default function CheckoutSuccess() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Loader2 size={48} className="animate-spin text-stavi-terracotta" /></div>}>
+      <CheckoutSuccessInner />
+    </Suspense>
   )
 }
