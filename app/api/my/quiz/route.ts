@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   const topOrderIdxs = top2.length >= 2 ? top2.map(r => r.orderIdx) : recs.slice(0, 2).map(r => r.orderIdx)
 
   await prisma.quizResult.create({
-    data: { userId: user!.id, answers: { answers, recommendations: recs, top2: topOrderIdxs } },
+    data: { userId: user!.id, answers: { answers, recommendations: recs as any, top2: topOrderIdxs } },
   })
   return NextResponse.json({ ok: true, recommendations: recs, top2: topOrderIdxs })
 }
