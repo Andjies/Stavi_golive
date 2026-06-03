@@ -1,0 +1,88 @@
+{
+  "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/book/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/book/[id]/page.css",
+      "static/chunks/app/book/[id]/page.js"
+    ],
+    "/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/login/page.css",
+      "static/chunks/app/login/page.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/page.css",
+      "static/chunks/app/admin/page.js"
+    ],
+    "/shop/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/shop/page.css",
+      "static/chunks/app/shop/page.js"
+    ],
+    "/story/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/story/page.css",
+      "static/chunks/app/story/page.js"
+    ],
+    "/events/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/events/page.css",
+      "static/chunks/app/events/page.js"
+    ],
+    "/donate/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/donate/page.css",
+      "static/chunks/app/donate/page.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard/page.css",
+      "static/chunks/app/dashboard/page.js"
+    ],
+    "/quiz/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/quiz/page.css",
+      "static/chunks/app/quiz/page.js"
+    ],
+    "/community/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/community/page.css",
+      "static/chunks/app/community/page.js"
+    ],
+    "/aid-request/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/aid-request/page.css",
+      "static/chunks/app/aid-request/page.js"
+    ],
+    "/customize/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/customize/page.css",
+      "static/chunks/app/customize/page.js"
+    ]
+  }
+}
